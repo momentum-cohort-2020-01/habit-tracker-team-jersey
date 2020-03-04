@@ -16,7 +16,7 @@ class Habit(models.Model):
     habit = models.CharField(max_length=100)
     habit_user = models.ForeignKey('User', on_delete=models.SET_NULL, null=True,)
     description = models.TextField(max_length=1000)
-    slug = models.SlufField(null=False, unique=True)
+    slug = models.SlugField(null=False, unique=True)
    
    
     def __str__(self):
@@ -38,7 +38,6 @@ class Tracker(models.Model):
 
 
 
-   
    
    
 
