@@ -8,18 +8,18 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def index(request):
     users = User.objects.all()
-    return render(request, "core/habit_list.html", {'habits': habits})
+    return render(request, "config/habit_list.html", {'habits': habits})
 
 
 def daily_log(request):
-    view =
+    pass
 
 
 def show_habits(request):
     habit = Habit.objects.all()
-    return render(request, "core/habit_choices.html"
-                  {'habits': habits})
+    return render(request, "config/habit_choices.html", {'habits': habits})
 
+                  
 
 def tracker(request):
     tracker = Tracker.objects.all()
