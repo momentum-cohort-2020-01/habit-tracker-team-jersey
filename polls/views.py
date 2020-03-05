@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import User, Habit, Tracker
-
+from .forms import HabitForm
 
 # @login_required
 def index(request):
@@ -22,3 +22,13 @@ def show_habits(request):
 def tracker(request):
     tracker = Tracker.objects.all()
     return render(request, )
+
+
+def create_habit(request, pk):
+    if request.method == 'POST':
+        form = HabitForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/thanks/', pk=pk)
+    else:
+        form = HabitForm()
+    return render(request, 'new_habit.html', {'form': form, 'pk': pk})
