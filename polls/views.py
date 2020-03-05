@@ -3,10 +3,10 @@ from django.contrib.auth.decorators import login_required
 from .models import User, Habit, Tracker
 
 
-@login_required
+# @login_required
 def index(request):
     users = User.objects.all()
-    return render(request, "config/habit_list.html", {'habits': habits})
+    return render(request, "core/index.html", {'users': users})
 
 
 def daily_log(request):
@@ -14,8 +14,8 @@ def daily_log(request):
 
 
 def show_habits(request):
-    habit = Habit.objects.all()
-    return render(request, "config/habit_choices.html", {'habits': habits})
+    habits = Habit.objects.all()
+    return render(request, "core/tracker.html", {'habits': habits})
 
                   
 
