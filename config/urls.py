@@ -20,20 +20,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-
-
 urlpatterns = [
-    path('',views.index, name="home"),
+    path('', views.index, name="home"),
     path('admin/', admin.site.urls),
-    
+    path('habit-tracker/<int:pk>', views.tracker, name='habit-tracker'),
+
+
     # path('accounts/', include('registration.backends.default.urls')),
 ]
 
 
-
-
-
-#From the website https://django-debug-toolbar.readthedocs.io/en/latest/installation.html and her example from class.
+# From the website https://django-debug-toolbar.readthedocs.io/en/latest/installation.html and her example from class.
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
