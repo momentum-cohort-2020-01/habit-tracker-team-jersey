@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 
     <link rel="stylesheet" href="{% static 'styles.css' %}" /> {% block title %}
     <title>Habit Tracker Main</title>
     {% endblock %}
 </head>
+
+<header>
+    <div class="header">
+        <h1>Habit Tracker</h1>
+        <h3>Be your best self</h3>
+    </div>
+</header>
 
 <body>
     {% block content %} {% endblock %}

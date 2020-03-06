@@ -4,9 +4,12 @@ from .models import User, Habit, Tracker
 from .forms import HabitForm
 
 # @login_required
+
+
 def index(request):
     users = User.objects.all()
-    return render(request, "core/index.html", {'users': users})
+    habits = Habit.objects.all()
+    return render(request, "core/index.html", {'users': users, "habits": habits})
 
 
 def daily_log(request):
@@ -17,7 +20,6 @@ def show_habits(request):
     habits = Habit.objects.all()
     return render(request, "core/tracker.html", {'habits': habits})
 
-                  
 
 def tracker(request):
     tracker = Tracker.objects.all()
@@ -31,4 +33,4 @@ def create_habit(request, pk):
             return HttpResponseRedirect('/thanks/', pk=pk)
     else:
         form = HabitForm()
-    return render(request, 'new_habit.html', {'form': form, 'pk': pk})
+    return render(request, 'create_habit.html', {'form': form, 'pk': pk})
