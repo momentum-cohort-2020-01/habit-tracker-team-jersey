@@ -7,6 +7,8 @@
         <h3>{{habit}}</h3>
         <div class='description'>{{habit.description |truncatewords:50}}</div>
         <div class='goal'>{{habit.daily_goal}}</div>
+        <a class="small-button" href={% url 'edit-habit' habit.pk %}>Edit Habit</a>
+        <a class="small-button" href='google.com'>Log</a>
     </div>
     {% endfor %}
     <a class="button-link" href={% url 'create-habit' %}>Create a Habit</a>

@@ -3,9 +3,8 @@ from django.contrib.auth.decorators import login_required
 from .models import User, Habit, Tracker
 from .forms import HabitForm
 
+
 # @login_required
-
-
 def index(request):
     users = User.objects.all()
     habits = Habit.objects.all()
@@ -27,11 +26,34 @@ def tracker(request):
 
 
 def create_habit(request):
-    new_habit = Habit.objects.all()
     if request.method == 'POST':
         form = HabitForm(request.POST)
         if form.is_valid():
-            return redirect('home', pk=habit.pk)
+            habit = form.save()
+            return redirect("home", pk=habit.pk)
     else:
         form = HabitForm()
     return render(request, 'core/create_habit.html', {'form': form})
+
+
+def edit_habit(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    if request.method == 'POST':
+        form = HabitForm(request.POST, instance=habit)
+        if form.is_valid():
+            form.save()
+            return redirect('home', pk=habit.pk)
+    else:
+        form = HabitForm(instance=habit)
+
+    return render(request, 'core/edit_habit.html', {"form": form})
+
+
+def delete_habit(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    habit.delete()
+    return redirect('home')
+
+
+def log_progress(request, pk):
+    pass
