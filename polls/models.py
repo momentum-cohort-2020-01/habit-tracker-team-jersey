@@ -14,10 +14,10 @@ class User(models.Model):
 
 class Habit(models.Model):
     habit = models.CharField(max_length=100)
-    habit_user = models.ForeignKey(
+    user = models.ForeignKey(
         'User', on_delete=models.SET_NULL, null=True,)
-    description = models.TextField(max_length=1000)
-    daily_goal = models.TextField(max_length=1000, default="goal",)
+    description = models.TextField(max_length=500)
+    daily_goal = models.TextField(max_length=200, default="goal",)
     slug = models.SlugField(null=False, unique=True)
 
     def __str__(self):

@@ -16,9 +16,9 @@ def daily_log(request):
     pass
 
 
-def show_habits(request):
-    habits = Habit.objects.all()
-    return render(request, "core/tracker.html", {'habits': habits})
+# def show_habits(request):
+#     habits = Habit.objects.all()
+#     return render(request, "core/tracker.html", {'habits': habits})
 
 
 def tracker(request):
@@ -26,11 +26,12 @@ def tracker(request):
     return render(request, )
 
 
-def create_habit(request, pk):
+def create_habit(request):
+    new_habit = Habit.objects.all()
     if request.method == 'POST':
         form = HabitForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect('/thanks/', pk=pk)
+            return redirect('home', pk=habit.pk)
     else:
         form = HabitForm()
-    return render(request, 'create_habit.html', {'form': form, 'pk': pk})
+    return render(request, 'core/create_habit.html', {'form': form})
