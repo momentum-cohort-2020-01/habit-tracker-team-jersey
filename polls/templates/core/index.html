@@ -1,6 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-<h4>Index</h4>
-<a class="button-link" href={% url 'create-habit' %}>Create a Habit</a>
 
 <div class='container'>
     {% for habit in habits %}
@@ -10,7 +8,7 @@
         <div class='description'>{{habit.description |truncatewords:50}}</div>
         <div class='goal'>{{habit.daily_goal}}</div>
     </div>
-
     {% endfor %}
+    <a class="button-link" href={% url 'create-habit' %}>Create a Habit</a>
 </div>
 {% endblock %}
