@@ -35,13 +35,14 @@ def create_habit(request):
         form = HabitForm()
     return render(request, 'core/create_habit.html', {'form': form})
 
-
 def edit_habit(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
+
     if request.method == 'POST':
         form = HabitForm(request.POST, instance=habit)
         if form.is_valid():
             form.save()
+
             return redirect('home', pk=habit.pk)
     else:
         form = HabitForm(instance=habit)
@@ -57,3 +58,4 @@ def delete_habit(request, pk):
 
 def log_progress(request, pk):
     pass
+
