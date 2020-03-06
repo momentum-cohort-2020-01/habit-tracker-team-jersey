@@ -22,9 +22,24 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name="home"),
-    path('admin/', admin.site.urls),
     path('habit-tracker/<int:pk>', views.tracker, name='habit-tracker'),
     path('create-habit/', views.create_habit, name='create-habit'),
+    path('todos/<int:pk>/edit/', views.edit_habit, name='habit-edit'),
+    path('todos/<int:pk>/delete/', views.delete_habit, name='habit-delete'),
+    path('admin/', admin.site.urls),
+
+
+# __debug__/
+# [name='home']
+# habit-tracker/<int:pk> [name='habit-tracker']
+# create-habit/ [name='create-habit']
+# todos/<int:pk>/edit/ [name='habit-edit']
+# todos/<int:pk>/delete/ [name='habit-delete']
+# admin/
+
+
+
+
 
 
     # path('accounts/', include('registration.backends.default.urls')),
