@@ -17,7 +17,7 @@ class Habit(models.Model):
     habit_user = models.ForeignKey(
         'User', on_delete=models.SET_NULL, null=True,)
     description = models.TextField(max_length=1000)
-    goal = models.TextField(max_length=1000, default="goal",)
+    daily_goal = models.TextField(max_length=1000, default="goal",)
     slug = models.SlugField(null=False, unique=True)
 
     def __str__(self):

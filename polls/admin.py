@@ -6,4 +6,3 @@ from .models import User, Habit, Tracker
 admin.site.register(User)
 admin.site.register(Habit)
 admin.site.register(Tracker)
-
