@@ -24,21 +24,15 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     path('', views.index, name="home"),
+    path('admin/', admin.site.urls),
     path('habit-tracker/<int:pk>', views.tracker, name='habit-tracker'),
     path('create-habit/', views.create_habit, name='create-habit'),
     path('edit-habit/<int:pk>', views.edit_habit, name='edit-habit'),
-    path('delete-habit/', views.delete_habit, name='delete-habit'),
-    path('admin/', admin.site.urls),
+    # path('delete-habit/', views.delete_habit, name='delete-habit'),
+    path('delete-habit/<int:pk>', views.delete_habit, name='delete-habit'),
     url(r'^accounts/', include('registration.backends.default.urls')),
 
 ]
-# __debug__/
-# [name='home']
-# habit-tracker/<int:pk> [name='habit-tracker']
-# create-habit/ [name='create-habit']
-# todos/<int:pk>/edit/ [name='habit-edit']
-# todos/<int:pk>/delete/ [name='habit-delete']
-# admin/
 
 
 # From the website https://django-debug-toolbar.readthedocs.io/en/latest/installation.html and her example from class.

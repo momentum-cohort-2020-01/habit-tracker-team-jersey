@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'registration',
     'django.contrib.admin',
-    'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

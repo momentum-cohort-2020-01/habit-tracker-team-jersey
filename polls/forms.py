@@ -6,4 +6,4 @@ class HabitForm(forms.ModelForm):
 
     class Meta:
         model = Habit
-        fields = ('habit', 'daily_goal')
+        fields = ('habit', 'goal', 'goal_units', 'timeframe')
