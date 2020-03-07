@@ -7,7 +7,7 @@ from .forms import HabitForm
 # @login_required
 def index(request):
     users = User.objects.all()
-    habits = Habit.objects.all()
+    habits = Habit.objects.order_by('-created_at')
     return render(request, "core/index.html", {'users': users, "habits": habits})
 
 
@@ -35,6 +35,7 @@ def create_habit(request):
         form = HabitForm()
     return render(request, 'core/create_habit.html', {'form': form})
 
+
 def edit_habit(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
 
@@ -58,4 +59,3 @@ def delete_habit(request, pk):
 
 def log_progress(request, pk):
     pass
-
