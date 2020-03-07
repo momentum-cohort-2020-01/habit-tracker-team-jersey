@@ -29,6 +29,7 @@ urlpatterns = [
     path('edit-habit/<int:pk>', views.edit_habit, name='edit-habit'),
     path('delete-habit/', views.delete_habit, name='delete-habit'),
     path('admin/', admin.site.urls),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
 ]
 # __debug__/
