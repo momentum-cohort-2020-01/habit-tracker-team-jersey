@@ -44,7 +44,7 @@ def edit_habit(request, pk):
         if form.is_valid():
             form.save()
 
-            return redirect('home', pk=habit.pk)
+            return redirect('edit-habit', pk=habit.pk)
     else:
         form = HabitForm(instance=habit)
 
