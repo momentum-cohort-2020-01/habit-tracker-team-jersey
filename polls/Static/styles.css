@@ -35,16 +35,15 @@ h3 {
 
 .container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row, wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    border: 6px solid green;
+    /* border: 6px solid green; */
 }
 
 .habits {
-    flex-flow: column;
-    border: 6px solid red;
+    flex-flow: row;
+    /* border: 3px solid darkslategrey; */
     padding: 2rem;
     align-self: auto;
     width: auto;
@@ -52,15 +51,24 @@ h3 {
 }
 
 .button-link {
+    flex-flow: row, wrap;
     color: white;
     background-color: darkslategrey;
     padding: 2rem;
     font-family: Arial, Helvetica, sans-serif;
-    align-self: right;
-    font-size: 110%;
-    width: 200px;
+    font-size: 120%;
+    min-height: 200px;
+    min-width: 200px;
     /* border-radius: 20%; */
 }
+
+
+/* .button-link :hover {
+    flex-flow: row, wrap;
+    color: white;
+    background-color: white;
+    padding: 2rem;
+} */
 
 .nav-bar {
     color: white;
@@ -71,14 +79,6 @@ h3 {
     font-size: 110%;
     text-align: center;
     /* border-radius: 20%; */
-}
-
-.button-link :hover {
-    color: white;
-    background-color: rgb(29, 87, 87);
-    padding: 2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 80%;
 }
 
 p {
@@ -116,4 +116,5 @@ p {
     align-self: right;
     font-size: 75%;
     border-radius: 50px;
+    margin: 4 px;
 }

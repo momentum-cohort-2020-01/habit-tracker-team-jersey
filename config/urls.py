@@ -18,6 +18,8 @@ from django.urls import path, include
 from polls import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf import settings
+from django.conf.urls import include, url
 
 
 urlpatterns = [
@@ -28,7 +30,7 @@ urlpatterns = [
     path('delete-habit/', views.delete_habit, name='delete-habit'),
     path('admin/', admin.site.urls),
 
-
+]
 # __debug__/
 # [name='home']
 # habit-tracker/<int:pk> [name='habit-tracker']
@@ -36,7 +38,6 @@ urlpatterns = [
 # todos/<int:pk>/edit/ [name='habit-edit']
 # todos/<int:pk>/delete/ [name='habit-delete']
 # admin/
-
 
 
 # From the website https://django-debug-toolbar.readthedocs.io/en/latest/installation.html and her example from class.
