@@ -42,9 +42,9 @@ def edit_habit(request, pk):
     if request.method == 'POST':
         form = HabitForm(request.POST, instance=habit)
         if form.is_valid():
-            form.save()
+            habit = form.save()
 
-            return redirect('edit-habit', pk=habit.pk)
+            return redirect('home')
     else:
         form = HabitForm(instance=habit)
 
