@@ -20,7 +20,7 @@ def daily_log(request):
 #     return render(request, "core/tracker.html", {'habits': habits})
 
 
-def tracker(request):
+def tracker(request, pk):
     tracker = Tracker.objects.all()
     return render(request, )
 
@@ -53,9 +53,5 @@ def edit_habit(request, pk):
 
 def delete_habit(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
-    habit.delete()
+    habit = habit.delete()
     return redirect('home')
-
-
-def log_progress(request, pk):
-    pass
