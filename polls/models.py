@@ -15,12 +15,13 @@ class User(models.Model):
 
 
 class Habit(models.Model):
-    habit = models.CharField(max_length=100)
+    habit_name = models.CharField(max_length=100)
+    action = models.CharField(max_length=100)
     user = models.ForeignKey(
         'User', on_delete=models.SET_NULL, null=True,)
     description = models.TextField(max_length=500)
     goal = models.IntegerField(default="",)
-    goal_units = models.CharField(max_length=20, default="",)
+    unit = models.CharField(max_length=20, default="",)
     timeframe = models.CharField(max_length=20, default="",)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
