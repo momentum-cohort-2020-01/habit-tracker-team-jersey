@@ -1,18 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import User, Habit, Tracker
-from .forms import HabitForm
+from .forms import HabitForm, ProgressForm
 
 
-# @login_required
+@login_required
 def index(request):
     users = User.objects.all()
-    habits = Habit.objects.order_by('-created_at')
+    habits = Habit.objects.order_by('-updated_at')
     return render(request, "core/index.html", {'users': users, "habits": habits})
-
-
-def daily_log(request):
-    pass
 
 
 # def show_habits(request):
@@ -20,9 +16,15 @@ def daily_log(request):
 #     return render(request, "core/tracker.html", {'habits': habits})
 
 
-def tracker(request, pk):
-    tracker = Tracker.objects.all()
-    return render(request, )
+def log(request):
+    if request.method == 'POST':
+        form = ProgressForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(form, "home")
+    else:
+        form = ProgressForm()
+    return render(request, 'core/log.html', {'form': form})
 
 
 def create_habit(request):
@@ -37,7 +39,7 @@ def create_habit(request):
 
 
 def edit_habit(request, pk):
-    habit = get_object_or_404(Habit)
+    habit = get_object_or_404(Habit, pk=pk)
 
     if request.method == 'POST':
         form = HabitForm(request.POST, instance=habit)
