@@ -14,10 +14,10 @@ def my_view(request):
             login(request, user)
             redirect("home")
         else:
-            Return("Account is not active")
+            return render("Account is not active")
             ...
     else:
-        Return('Nope. Invalid Login Credentials')
+        return render('Nope. Invalid Login Credentials')
 
 
 def index(request):
