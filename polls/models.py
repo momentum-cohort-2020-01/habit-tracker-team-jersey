@@ -41,7 +41,7 @@ class Tracker(models.Model):
     habit_tracked = models.ForeignKey(
         'Habit', on_delete=models.SET_NULL, null=True,)
     updated_at = models.DateTimeField(auto_now=True)
-    input_units = models.IntegerField(default="")
+    input_units = models.IntegerField()
 
     def __str__(self):
         return f'{self.person}'

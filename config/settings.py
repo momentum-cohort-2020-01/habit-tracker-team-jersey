@@ -134,3 +134,9 @@ INTERNAL_IPS = [
 ]
 
 REGISTRATION_AUTO_LOGIN = True
+
+ACCOUNT_ACTIVATION_DAYS = 1
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
