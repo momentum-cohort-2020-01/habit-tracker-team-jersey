@@ -40,14 +40,14 @@ h3 {
 
 .container {
     display: flex;
-    flex-flow: row, wrap;
+    flex-flow: row wrap;
     justify-content: flex-start;
     align-items: flex-start;
     /* border: 6px solid green; */
 }
 
 .habits {
-    flex-flow: row;
+    flex-flow: row wrap;
     /* border: 3px solid darkslategrey; */
     padding: 2rem;
     align-self: auto;

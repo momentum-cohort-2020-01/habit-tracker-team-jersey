@@ -19,16 +19,17 @@ from polls import views
 from django.conf.urls.static import static
 from django.conf import settings
 from django.conf.urls import include, url
+from django.contrib.auth import urls
 
 
 urlpatterns = [
     path('', views.index, name="home"),
     path('admin/', admin.site.urls),
-    path('habit-tracker/<int:pk>', views.tracker, name='habit-tracker'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('log/<int:habit.pk>', views.log, name='log'),
     path('create-habit/', views.create_habit, name='create-habit'),
     path('edit-habit/<int:pk>', views.edit_habit, name='edit-habit'),
     path('delete-habit/<int:pk>', views.delete_habit, name='delete-habit'),
-
     url(r'^accounts/', include('registration.backends.default.urls')),
 
 ]
