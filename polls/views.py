@@ -19,6 +19,8 @@ def my_view(request):
     else:
         return render('Nope. Invalid Login Credentials')
 
+# @login
+
 
 def index(request):
     users = User.objects.all()
