@@ -24,15 +24,15 @@ class Habit(models.Model):
     timeframe = models.CharField(max_length=20, default="",)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    slug = models.SlugField(max_length=60, null=False, unique=True, default="")
-                           
+    slug = models.SlugField(max_length=60, null=False, unique=True,
+                            default="")
 
     def __str__(self):
         return f'{self.habit}'
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            slug = slugify(self.name)
+            slug = slugify(self.habit)
         return super().save(*args, **kwargs)
 
 

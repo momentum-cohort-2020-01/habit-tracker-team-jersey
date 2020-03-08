@@ -30,19 +30,19 @@ def create_habit(request):
         form = HabitForm(request.POST)
         if form.is_valid():
             habit = form.save()
-            return redirect("home", pk=habit.pk)
+            return redirect("home")
     else:
         form = HabitForm()
     return render(request, 'core/create_habit.html', {'form': form})
 
 
 def edit_habit(request, pk):
-    habit = get_object_or_404(Habit, pk=pk)
+    habit = get_object_or_404(Habit)
 
     if request.method == 'POST':
         form = HabitForm(request.POST, instance=habit)
         if form.is_valid():
-            habit = form.save()
+            form.save()
 
             return redirect('home')
     else:
