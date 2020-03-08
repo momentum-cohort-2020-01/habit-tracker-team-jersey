@@ -2,9 +2,24 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRe
 from django.contrib.auth.decorators import login_required
 from .models import User, Habit, Tracker
 from .forms import HabitForm, ProgressForm
+from django.contrib.auth import authenticate, login
 
 
-@login_required
+def my_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        if user.is_active:
+            login(request, user)
+            redirect("home")
+        else:
+            Return("Account is not active")
+            ...
+    else:
+        Return('Nope. Invalid Login Credentials')
+
+
 def index(request):
     users = User.objects.all()
     habits = Habit.objects.order_by('-updated_at')
