@@ -40,12 +40,12 @@ class Habit(models.Model):
 class Tracker(models.Model):
     person = models.ForeignKey('User', on_delete=models.SET_NULL, null=True,)
     habit_tracked = models.ForeignKey(
-        'Habit', on_delete=models.SET_NULL, null=True,)
+        'Habit', related_name='habit', on_delete=models.SET_NULL, null=True,)
     updated_at = models.DateTimeField(auto_now=True)
     input_units = models.IntegerField()
 
     def __str__(self):
-        return f'{self.person}'
+        return f'{self.habit_tracked}'
 
 
 # Create your models here.
