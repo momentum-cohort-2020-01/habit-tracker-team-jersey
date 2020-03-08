@@ -14,9 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 from polls import views
-from django.conf import settings
 from django.conf.urls.static import static
 from django.conf import settings
 from django.conf.urls import include, url
@@ -28,8 +27,8 @@ urlpatterns = [
     path('habit-tracker/<int:pk>', views.tracker, name='habit-tracker'),
     path('create-habit/', views.create_habit, name='create-habit'),
     path('edit-habit/<int:pk>', views.edit_habit, name='edit-habit'),
-    # path('delete-habit/', views.delete_habit, name='delete-habit'),
     path('delete-habit/<int:pk>', views.delete_habit, name='delete-habit'),
+    
     url(r'^accounts/', include('registration.backends.default.urls')),
 
 ]

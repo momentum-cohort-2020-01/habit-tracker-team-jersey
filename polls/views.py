@@ -53,5 +53,5 @@ def edit_habit(request, pk):
 
 def delete_habit(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
-    habit = habit.delete()
+    habit.delete()
     return redirect('home')
