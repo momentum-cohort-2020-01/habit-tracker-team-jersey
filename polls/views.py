@@ -33,12 +33,13 @@ def index(request):
 #     return render(request, "core/tracker.html", {'habits': habits})
 
 
-def log(request):
+def log(request, pk):
+    form = get_object_or_404(Tracker, pk=pk)
     if request.method == 'POST':
         form = ProgressForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(form, "home")
+            return redirect("home")
     else:
         form = ProgressForm()
     return render(request, 'core/log.html', {'form': form})

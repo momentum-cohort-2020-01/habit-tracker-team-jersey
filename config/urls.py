@@ -26,7 +26,7 @@ urlpatterns = [
     path('', views.index, name="home"),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('log/<int:habit.pk>', views.log, name='log'),
+    path('log/<int:pk>', views.log, name='log'),
     path('create-habit/', views.create_habit, name='create-habit'),
     path('edit-habit/<int:pk>', views.edit_habit, name='edit-habit'),
     path('delete-habit/<int:pk>', views.delete_habit, name='delete-habit'),
