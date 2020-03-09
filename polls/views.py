@@ -4,6 +4,10 @@ from .models import User, Habit, Tracker
 from .forms import HabitForm, ProgressForm
 from django.contrib.auth import authenticate, login
 
+from django.shortcuts import render
+from .models import Tracker
+
+
 
 def my_view(request):
     username = request.POST['username']
@@ -75,3 +79,19 @@ def delete_habit(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
     habit.delete()
     return redirect('home')
+
+
+#Here's the views.py part of the pie chart. 
+def pie_chart(request):
+    labels = []
+    data = []
+
+    queryset = Tracker.objects.order_by('-habits')[:5]
+    for tracker in queryset:
+        labels.append(tracker.person)
+        data.append(tracker.habit_tracked)
+
+    return render(request, 'pie_chart.html', {
+        'labels': labels,
+        'data': data,
+    })
