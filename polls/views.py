@@ -50,7 +50,7 @@ def log(request, pk):
 
 
 def log_record(request, pk):
-    logs = Tracker.objects.all()
+    logs = get_object_or_404(Tracker.objects.input_units)
     habit = get_object_or_404(Habit, pk=pk)
     return render(request, 'core/log_record.html', {'logs': logs, 'habit': habit})
 

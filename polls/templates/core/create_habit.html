@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p class='nav-bar'>Create Habit</p>
+
+<h2>Create a Habit<h2>
+<h3>Here are a few tips:</h3>
+<p>'Habit Name' is whatever you want to call your new habit.</p>
+<p>'Action' refers to the simple verb in the present tense. 'Eat' or 'Run', etc.</p>
+<p>'Goal' is a number: how many instances of the action you want to acheive in a given timeframe. </p>
+<p>'Unit' is a unit of measurement, in the singular. For istance, 'mile' or 'apple'.</p>
+<p>And the 'Timeframe' is something like 'day', 'week', 'month', etc.</p>
+
+<b>Go ahead and give it a try!</b>
 
 <form class = 'form' action='' method="post">
     {% csrf_token %}

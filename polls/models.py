@@ -29,7 +29,7 @@ class Habit(models.Model):
     #                         default="")
 
     def __str__(self):
-        return f'{self.habit}'
+        return f'{self.habit_name}'
 
     # def save(self, *args, **kwargs):
     #     if not self.slug:
@@ -46,7 +46,7 @@ class Tracker(models.Model):
     input_units = models.IntegerField()
 
     def __str__(self):
-        return f'{self.habit_tracked}'
+        return f'{self.person}{self.habit_tracked}{self.updated_at}{self.input_units}'
 
 
 # Create your models here.

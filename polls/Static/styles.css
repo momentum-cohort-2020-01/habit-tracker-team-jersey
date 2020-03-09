@@ -5,18 +5,17 @@
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
+    color: rgb(54, 77, 101);
 }
 
-.link {}
-
 .background-body {
-    background-color: #8EC5FC;
-    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 64%, #ffffff 100%);
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 }
 
 header {
     background-color: rgb(43, 138, 201);
-    color: rgb(51, 41, 87);
+    color: White;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     padding-top: 1rem;
@@ -27,6 +26,7 @@ header {
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 1rem;
     text-align: center;
+    color: white
 }
 
 h1 {
@@ -72,7 +72,7 @@ h3 {
 .button-link {
     flex-flow: row, wrap;
     color: white;
-    background-color: rgb(227, 144, 106);
+    background-color: rgb(150, 197, 252);
     font-family: Arial, Helvetica, sans-serif;
     text-justify: auto;
     text-align: center;
@@ -87,7 +87,7 @@ h3 {
 }
 
 .button-link:hover {
-    background-color: rgb(150, 22, 47);
+    background-color: rgb(129, 179, 236);
     color: white;
 }
 
@@ -142,12 +142,13 @@ p {
     text-transform: uppercase;
     margin-left: 0;
     text-align: left;
-    color: red;
+    color: white;
 }
 
 .form {
     padding: 2rem;
     font-family: Arial, Helvetica, sans-serif;
+    color: slategray;
 }
 
 .small-button-container {
@@ -160,8 +161,9 @@ p {
 
 .small-button {
     flex-flow: row;
-    border: solid rgb(227, 144, 106) 2px;
+    /* border: solid rgb(150, 22, 47) 2px; */
     padding: .5rem;
+    padding-left: 0;
     font-family: Arial, Helvetica, sans-serif;
     align-self: right;
     font-size: 75%;
@@ -169,6 +171,16 @@ p {
     margin: 4 px;
 }
 
-.small-button:hover {
+
+/* .small-button:hover {
     background-color: rgb(150, 22, 47);
+    color: white;
+} */
+
+*links:active {
+    color: white
+}
+
+*links:visited {
+    color: white
 }

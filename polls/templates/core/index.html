@@ -2,13 +2,12 @@
 
 <div class='container'>
     <a class="button-link" href={% url 'create-habit' %}>
-        <p>New Habit
-        </p>
+        <p>New Habit</p>
 
     </a> {% for habit in habits %}
 
     <div class='habits'>
-        <h3>{{habit.name}}</h3>
+        <h3>{{habit.habit_name|capfirst}}</h3>
 
         <div class='description'><b>Goal: </b>{{habit.action|capfirst}} {{habit.goal}} {{habit.unit|capfirst}}{{habit.goal|pluralize}} per {{habit.timeframe|capfirst}}</div>
 

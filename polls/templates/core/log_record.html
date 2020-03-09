@@ -5,13 +5,10 @@
 <h1>Log</h1>
 
 {% for habit in habits %}
-    {% for log in logs%}
  
 {{habit.habit_name}}
-{{tracker.input_units}}
+{% comment %} {{tracker.input_units}} {% endcomment %}
 {{tracker.updated_at}}
-
-    {% endfor %}
 
 {% endfor %}
 
