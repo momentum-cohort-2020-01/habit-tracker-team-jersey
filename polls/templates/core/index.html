@@ -9,11 +9,23 @@
 
     <div class='habits'>
         <h3>{{habit.name}}</h3>
+
         <div class='description'><b>Goal: </b>{{habit.action|capfirst}} {{habit.goal}} {{habit.unit|capfirst}}{{habit.goal|pluralize}} per {{habit.timeframe|capfirst}}</div>
-        <a class="small-button" href={% url 'edit-habit' habit.pk %}>Edit</a>
-        <a class="small-button" href={% url 'log' habit.pk %}>Log</a>
-        <a class="small-button" href={% url 'delete-habit' pk=habit.pk %}>Delete</a>
-        <p><b>Log: {{tracker.updated_at}} {{tracker.input_units}}</b></p>
+
+        <div class="small-button-container">
+
+            <a class="small-button" href={% url 'edit-habit' habit.pk %}>Edit</a>
+
+            <a class="small-button" href={% url 'log' habit.pk %}>Log</a>
+
+            <a class="small-button" href={% url 'delete-habit' pk=habit.pk %}>Delete</a>
+
+        </div>
+        <div class='log-container'>
+
+            <a class='log' href={% url 'log-record' habit.pk %}><b>Log Record</b></a>
+        </div>
+
     </div>
     {% endfor %}
 

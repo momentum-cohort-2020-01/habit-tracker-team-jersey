@@ -3,7 +3,11 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
 }
+
+.link {}
 
 .background-body {
     background-color: #8EC5FC;
@@ -32,6 +36,14 @@ h1 {
     padding: 4rem, 4rem, 4rem, 0rem;
 }
 
+h1:link {
+    color: white;
+}
+
+h1:visited {
+    color: white;
+}
+
 h3 {
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
@@ -42,7 +54,9 @@ h3 {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
+    align-content: center;
     align-items: flex-start;
+    border: solid white 4px;
     /* border: 6px solid green; */
 }
 
@@ -51,20 +65,30 @@ h3 {
     /* border: 3px solid darkslategrey; */
     padding: 2rem;
     align-self: auto;
-    width: auto;
+    width: 200px;
     word-wrap: inherit;
 }
 
 .button-link {
     flex-flow: row, wrap;
     color: white;
-    background-color: darkslategrey;
-    padding: 2rem;
+    background-color: rgb(227, 144, 106);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 120%;
-    min-height: 200px;
-    min-width: 200px;
+    text-justify: auto;
+    text-align: center;
+    padding-left: 40px;
+    padding-top: 70px;
+    font-size: 300%;
+    max-width: 200px;
+    min-height: 260px;
     /* border-radius: 20%; */
+    padding-bottom: 4px;
+    border: solid white 4px;
+}
+
+.button-link:hover {
+    background-color: rgb(150, 22, 47);
+    color: white;
 }
 
 
@@ -108,18 +132,43 @@ p {
     padding-bottom: 1rem;
 }
 
+.log-container {
+    padding: 4rem, 4rem, 4rem, 4rem;
+}
+
+.log {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    text-transform: uppercase;
+    margin-left: 0;
+    text-align: left;
+    color: red;
+}
+
 .form {
     padding: 2rem;
-    text-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.small-button-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: flex-start;
 }
 
 .small-button {
-    color: white;
-    background-color: darkslategrey;
+    flex-flow: row;
+    border: solid rgb(227, 144, 106) 2px;
     padding: .5rem;
     font-family: Arial, Helvetica, sans-serif;
     align-self: right;
     font-size: 75%;
     border-radius: 50px;
     margin: 4 px;
+}
+
+.small-button:hover {
+    background-color: rgb(150, 22, 47);
 }

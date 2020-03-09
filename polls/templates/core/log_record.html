@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<h1>Log</h1>
+
+{% for habit in habits %}
+    {% for log in logs%}
+ 
+{{habit.habit_name}}
+{{tracker.input_units}}
+{{tracker.updated_at}}
+
+    {% endfor %}
+
+{% endfor %}
+
+{% endblock %}

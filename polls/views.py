@@ -25,7 +25,11 @@ def my_view(request):
 def index(request):
     users = User.objects.all()
     habits = Habit.objects.order_by('-updated_at')
-    return render(request, "core/index.html", {'users': users, "habits": habits})
+    logs = Tracker.objects.all()
+    # last_logged_habit = Tracker.objects.filter('updated_at').order_by('-id')[0]
+    # last_logged_value = Tracker.objects.filter(input_units).order_by('-id')[0]
+
+    return render(request, "core/index.html", {'users': users, "habits": habits, "logs": logs})
 
 
 # def show_habits(request):
@@ -43,6 +47,12 @@ def log(request, pk):
     else:
         form = ProgressForm()
     return render(request, 'core/log.html', {'form': form})
+
+
+def log_record(request, pk):
+    logs = Tracker.objects.all()
+    habit = get_object_or_404(Habit, pk=pk)
+    return render(request, 'core/log_record.html', {'logs': logs, 'habit': habit})
 
 
 def create_habit(request):

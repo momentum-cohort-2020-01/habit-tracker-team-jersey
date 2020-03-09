@@ -38,7 +38,8 @@ class Habit(models.Model):
 
 
 class Tracker(models.Model):
-    person = models.ForeignKey('User', on_delete=models.SET_NULL, null=True,)
+    person = models.ForeignKey(
+        'User', related_name='user', on_delete=models.SET_NULL, null=True,)
     habit_tracked = models.ForeignKey(
         'Habit', related_name='habit', on_delete=models.SET_NULL, null=True,)
     updated_at = models.DateTimeField(auto_now=True)
